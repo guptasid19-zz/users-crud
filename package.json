@@ -14,5 +14,8 @@
   "bugs": {
     "url": "https://github.com/guptasid19/users-crud/issues"
   },
-  "homepage": "https://github.com/guptasid19/users-crud#readme"
+  "homepage": "https://github.com/guptasid19/users-crud#readme",
+  "dependencies": {
+    "uuid": "^3.3.3"
+  }
 }
