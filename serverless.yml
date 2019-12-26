@@ -37,6 +37,12 @@ functions:
       - http:
           path: users/{id}
           method: delete
+  update:
+    handler: users/update.update
+    events:
+      - http:
+          path: users/{id}
+          method: put
 resources:
   Resources:
     UsersDynamoDbTable:
