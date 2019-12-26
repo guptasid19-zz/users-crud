@@ -25,6 +25,12 @@ functions:
       - http:
           path: users
           method: get
+  get:
+    handler: users/get.get
+    events:
+      - http:
+          path: users/{id}
+          method: get
 resources:
   Resources:
     UsersDynamoDbTable:

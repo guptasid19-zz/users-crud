@@ -30,7 +30,7 @@ module.exports.create = async (event, context) => {
     console.error(err);
     return {
         statusCode: 500,
-        message: 'Couldn\'t create the user.',
+        body: 'Couldn\'t create the user.',
     };
   }
 };

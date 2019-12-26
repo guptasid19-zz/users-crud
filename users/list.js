@@ -20,7 +20,7 @@ module.exports.list = async (event, context) => {
     console.error(err);
     return {
         statusCode: 500,
-        message: 'Couldn\'t create the user.',
+        body: 'Couldn\'t fetch the users.',
     };
   }
 };
