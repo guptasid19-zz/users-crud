@@ -19,6 +19,12 @@ functions:
       - http:
           path: users/create
           method: post
+  list:
+    handler: users/list.list
+    events:
+      - http:
+          path: users
+          method: get
 resources:
   Resources:
     UsersDynamoDbTable:
