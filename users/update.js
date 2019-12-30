@@ -10,7 +10,7 @@ module.exports.update = async (event, context) => {
   const data = JSON.parse(event.body);
 
   const params = {
-    TableName: 'sls-users',
+    TableName: process.env.DYNAMODB_TABLE,
     Key: {
       id: event.pathParameters.id,
     },

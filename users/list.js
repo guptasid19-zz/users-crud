@@ -7,7 +7,7 @@ const dynamoDb = new AWS.DynamoDB.DocumentClient();
 module.exports.list = async (event, context) => {
 
   const params = {
-    TableName: 'sls-users',
+    TableName: process.env.DYNAMODB_TABLE,
   };
 
   try {

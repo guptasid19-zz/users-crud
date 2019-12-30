@@ -2,6 +2,8 @@ service: users-crud
 provider:
   name: aws
   runtime: nodejs12.x
+  environment:
+    DYNAMODB_TABLE: ${self:service}-${opt:stage, self:provider.stage}
   iamRoleStatements:
     - Effect: Allow
       Action:
@@ -11,7 +13,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:us-east-1:141814163830:table/sls-users"
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.DYNAMODB_TABLE}"
 functions:
   create:
     handler: users/create.create
@@ -48,7 +50,7 @@ resources:
     UsersDynamoDbTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: sls-users
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S

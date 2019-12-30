@@ -10,7 +10,7 @@ module.exports.create = async (event, context) => {
   const { email, username } = JSON.parse(event.body);
 
   const params = {
-    TableName: 'sls-users',
+    TableName: process.env.DYNAMODB_TABLE,
     Item: {
       id: uuid.v1(),
       username,
